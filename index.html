@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+body{
+    background-color: #000;
+    margin: 0; padding: 0;
+    color: #fff;
+    overflow-x: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+h2{
+    margin-bottom: 0px;
+} .channelsubs{
+    color: #999;
+    margin: 5px 0;
+}
+
+.channeltop{
+    width: 75vw;
+    margin: 20px 0 20px;
+    padding: 40px auto;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+}
+.channelbaseinfo{
+    padding: 0 20px;
+}
+.channelpic{
+    width: 30vw;
+    height: 30vw;
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 500px;
+} hr {
+    border-color: #333;
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 auto;
+}
+.photos{
+    /* max-width: 500px; */
+    display: grid;
+    grid-template-columns: 25vw 25vw 25vw;
+}
+.photo{
+    height: 25vw;
+    display: flex;
+    margin: 1px;
+    width: 25vw;
+    justify-content: center;
+}
+
+
+.photoprev{
+    height: 100%;
+    width: 100%;
+    min-width: 0px;
+    min-height: 0px;
+    /* border: solid 1px #000; */
+    background-color: #000;
+    object-fit: cover;
+
+}
+img{
+    object-fit: cover;
+
+}
+
+.loadmore{
+    margin: 10px 0;
+    padding: 7px 14px;
+    background-color: #fff;
+    color: #000;
+    border-radius: 5px;
+}
+
+
+.postview{
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0,0,0,.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} .post{
+    font-size: 14px;
+    height: 40vw;
+    width: 80vw;
+    background-color: #000;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100% 30px;
+} .postimgdiv{
+    max-height: 100%;
+    max-width: 100%;
+}
+.postimg{
+    height: 100%;
+    width: 100%;
+    min-width: 0px;
+    min-height: 0px;
+} .postimgchange{
+    /* height: 30px; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+} datetime {
+    padding-left: 5px;
+    font-size: 12px;
+    color: #555;
+}
+.postinfodiv{
+    padding: 0 5px;
+    display: flex;
+    flex-direction: column;
+} hr {
+    width: 100%;
+}
+
+.posttext{
+    margin: 0;
+    padding-top: 5px;
+    max-height: 70%;
+    overflow-y: auto;
+}
+strong{
+    font-size: 15.3px;
+    padding-right: 3px;
+
+}
+.postbuttons{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+}
+.postbutton{
+    background-color: #222;
+    /* color: #000; */
+    
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    border-radius: 50px;
+    border: solid 1px #fff;
+    text-align: center;
+} .postbt{
+    display: flex;
+    flex-direction: row;
+    padding: 0 5px;
+}
+
+.mobilehr{
+    opacity: 0;
+    height: 0px;
+    margin: 0;
+    color: #333;
+    background-color: #333;
+}
+.postcomments{
+    overflow-y: auto;
+} .loadcomments {
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    color: #000;
+    font-weight: bold;
+    margin: 5px 10px;
+    padding: 5px;
+    border-radius: 50px;
+} .postcomment{
+    margin: 0 0 10px;
+}
+@media (max-width: 700px){
+    .photo{
+        width: 29vw;
+
+        height: 29vw;
+    }
+    .photos{
+    display: grid;
+    grid-template-columns: 29vw 29vw 29vw;
+}    .channeltop{
+    width: 75vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    margin-bottom: 0;
+    }
+    .channelpic{
+        margin: 0 auto;
+        width: 60vw;
+        height: 60vw;
+    } 
+
+} @media (max-width: 500px){
+    .photo{
+        width: 33vw;
+        height: 33vw;
+    }.posttext{
+    max-height: max-content;
+    overflow-y: visible;
+}
+    .mobilehr{
+        opacity: 1;
+        height: .4px;
+        margin: 0 0 10px;
+    } .main{
+        margin-bottom: 30px;
+    }
+    .photos{
+    display: grid;
+    grid-template-columns: 33vw 33vw 33vw;
+    }
+    .channeltop{
+    width: 75vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    margin-bottom: 0;
+    }
+    .channelpic{
+        margin: 0 auto;
+        width: 60vw;
+        height: 60vw;
+    }    .post{
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+        overflow-x: hidden;
+        height: 100%;
+        width: 100%;
+    } .postimg {
+        width: 100vw;
+        height: 100vw;
+
+    }.postcomments{
+        overflow-y:visible;
+    }
+    .loadcomments {
+        margin-bottom: 20px;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- <div class="postview" >
+        <div class="post" onclick="//alert()">
+            <div class="postimgdiv">
+                <img class="postimg" id="postimg" src="https://cdn4.telegram-cdn.org/file/BT-8xnjSKB9idH4SxY6I_JIXLnEpNSFAO8P95WalF5RXRJ5dMxemUivEyZD507AbEyIDGQ1iZ0_uz9NLNar3upbFxmTENCutSJ-Xn2ItDIaR6RoS7o1I4m73geZT7hyz2pFAqFcROTGIw6Em7BF5YxIJxFGbbV34qRhK01OOdQraSWc-pc6F6hEIpQ9TVIgbs-bAB8SGDNjS8iXkuYurTpeADF91hCHsskvXKUtkb2bkANNV04wUq3arnwGdaeB1HIIQ6k5u1JDbW25PgMByCwrJZrL3sIBROStflwH_vTujJFwWQicXe3cq0sYBNs4uLFEKrthAHAzK6B56rjy-og.jpg" alt="">
+                <div class="postbuttons">
+                    <div class="postbt">
+                        <div class="postbutton" onclick="changephoto('p')"><</div>
+                        <div class="postbutton" onclick="" id="postimgcounter">1 / 5</div>
+                        <div class="postbutton" onclick="changephoto('n')">></div>   
+                    </div>
+                    <div class="postbt">
+                        <div class="postbutton" onclick="closepost()">Close</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="postinfodiv">
+                <p class="posttext"><strong>channel_short</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta dolorem non repellendus assumenda recusandae distinctio perferendis nostrum earum aspernatur necessitatibus. Porro cum numquam amet veniam dolores recusandae id molestiae corrupti ut consequatur, aspernatur modi unde deserunt natus esse vitae quasi! Sit harum deserunt quo nobis tempore quos quas adipisci nostrum magni exercitationem beatae, autem optio fugit sed laboriosam consequuntur temporibus eveniet. Tempora, nesciunt? Quisquam sint aliquam in nobis? Enim rem illum obcaecati rerum minima fugiat neque doloremque, iusto officiis cum deleniti earum! Debitis consequuntur exercitationem quibusdam cupiditate excepturi nisi aspernatur praesentium molestias rem tenetur, atque, ducimus asperiores at nemo adipisci.<datetime>13:40 22.07</datetime></p>
+                <hr>
+                <div class="postcomments">
+                    <div class="loadcomments" onclick="loadcomments('post_id')">Load comments</div>
+                    <p class="postcomment"><strong>channel_short</strong>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis iste non sapiente facere commodi molestiae asperiores? Totam voluptates fuga, ipsum magnam blanditiis ea harum itaque molestiae in, sed numquam sapiente.<datetime>13:40 22.07</datetime></p>
+                    <p class="postcomment"><strong>channel_short</strong>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita quaerat commodi velit, ipsam sapiente totam quos vitae consequuntur magni perferendis quis mollitia quam labore voluptatem beatae sint repudiandae necessitatibus quia.<datetime>13:40 22.07</datetime></p>
+                    <p class="postcomment"><strong>channel_short</strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione officiis accusamus dolore quia molestias quae blanditiis a deleniti doloremque ipsum nisi, sit nemo ducimus labore rerum velit alias odio eos.<datetime>13:40 22.07</datetime></p>
+                    <p class="postcomment"><strong>channel_short</strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima quos unde ipsum at doloremque! Odio quod quasi reiciendis ab, iusto a aspernatur illum? Quaerat quam doloremque commodi facere cum qui!<datetime>13:40 22.07</datetime></p>
+                    <p class="postcomment"><strong>channel_short</strong>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam nihil laboriosam exercitationem ipsam cupiditate earum deserunt soluta repellendus ut qui veniam, dolorem voluptas commodi, quos culpa voluptates provident temporibus quod!<datetime>13:40 22.07</datetime></p>
+                    <p class="postcomment"><strong>channel_short</strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni quisquam suscipit inventore quasi iusto labore facere dolore obcaecati sit, cum, saepe libero assumenda omnis autem tempora quos quod odio. Soluta.<datetime>13:40 22.07</datetime></p>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+<script src="config.js"></script>
+<script>
+c = window.location.search.split('/')[0].slice(1)
+channel = {}
+fetch(pytgcf_api+c)
+  .then(response => { return response.json() })
+  .then(data => { channel = data
+                  loadposts()})
+
+postimgs = []
+loadedpostimg = 0
+
+function loadcomments(id){
+    btn = document.getElementsByClassName('loadcomments')[0]
+    btn.onclick = ''
+    btn.innerHTML = 'Loading...'
+    fetch(pytgcf_api+c+'/post/'+id+'/comments')
+    .then(response => { return response.json() })
+    .then(data => {
+        commdiv = document.getElementsByClassName('postcomments')[0]
+        comments = ''
+        commdiv.innerHTML = comments
+        data = data.reverse()
+        for (let i = 0; i < data.length; i++) {
+            const comment = data[i];
+            dt = comment.datetime.split('T')
+            dt[0] = dt[0].split('-')
+            dt[1] = dt[1].split('+')[0].split(':')
+            comments += `<p class="postcomment"><strong>${comment.author.name}</strong> ${comment.text}<datetime>${dt[1][0]}:${dt[1][1]} ${dt[0][1]}.${dt[1][2]}</datetime></p>\n`           
+        }
+        commdiv.innerHTML = comments
+    })
+}
+
+function changephoto(act){
+    if (act == 'p' && loadedpostimg != 0){
+        loadedpostimg -= 1
+        document.getElementById('postimg').src = postimgs[loadedpostimg]
+        document.getElementById('postimgcounter').innerHTML = `${loadedpostimg+1} / ${postimgs.length}`
+    } else if (act == 'n' && loadedpostimg != postimgs.length-1){
+        loadedpostimg += 1
+        document.getElementById('postimg').src = postimgs[loadedpostimg]
+        document.getElementById('postimgcounter').innerHTML = `${loadedpostimg+1} / ${postimgs.length}`
+}}
+
+function closepost(){
+    document.getElementsByClassName('postview')[0].remove()
+    document.body.style.overflow = 'visible';
+}
+function openpost(id){
+    document.body.style.overflow = 'hidden';
+    for (let i = 0; i < channel.latests.length; i++) {
+        const element = channel.latests[i];
+        if (element.id == id){
+            post = element
+            console.log(post);
+            divpostview = document.createElement('div')
+            divpostview.classList.add('postview')
+
+            postdiv = document.createElement('div')
+            postdiv.classList.add('post')
+
+            postimgdiv = document.createElement('div')
+            postimgdiv.classList.add('postimgdiv')
+            postimg = document.createElement('img')
+            postimg.id = 'postimg'
+            postimg.classList.add('postimg')
+            postimg.src = 'null'
+            if (post.media != null){postimg.src = post.media[0]}
+            postimgdiv.appendChild(postimg)
+            
+            postbuttons = document.createElement('div')
+            postbuttons.classList.add('postbuttons')
+            if (post.media != null && post.media.length > 1){
+                
+                postimgs = post.media
+                loadedpostimg = 0
+                postbuttons.innerHTML = `                    <div class="postbt">
+                        <div class="postbutton" onclick="changephoto('p')"><</div>
+                        <div class="postbutton" onclick="" id="postimgcounter">1 / ${post.media.length}</div>
+                        <div class="postbutton" onclick="changephoto('n')">></div>   
+                    </div>`
+            }
+            postbuttons.innerHTML += `<div class="postbt">
+                        <div class="postbutton" onclick="closepost()">Close</div>
+                    </div>`
+            postimgdiv.appendChild(postbuttons)
+            postdiv.appendChild(postimgdiv)
+            
+            postinfodiv = document.createElement('div')
+            postinfodiv.classList.add('postinfodiv')
+            dt = post.datetime.split('T')
+            dt[0] = dt[0].split('-')
+            dt[1] = dt[1].split('+')[0].split(':')
+            if (post.text == 'None'){post.text = ''}
+            postinfodiv.innerHTML = `<p class="posttext"><strong>${channel.channel_short}</strong> ${post.text}<datetime>${dt[1][0]}:${dt[1][1]} ${dt[0][1]}.${dt[1][2]}</datetime></p>
+                <hr>
+                <div class="postcomments">
+                    <div class="loadcomments" onclick="loadcomments(${post.id})">Load comments</div>
+                </div>`
+            
+            postdiv.appendChild(postinfodiv)
+            divpostview.appendChild(postdiv)
+            document.body.appendChild(divpostview)
+
+    }}
+    // alert(post.text+'\n————————————————\npost: '+id+', author: '+channel.channel_short)
+}
+
+function addpost(data){
+    photod = document.createElement('div')
+    photod.classList.add('photo')
+    photod.id = data.id
+    photod.onclick = function (){openpost(data.id)}
+    if (data.media == null){img = 'text.png'}
+    else (img = data.media[0])
+
+
+    photoimg = document.createElement('img')
+    photoimg.classList.add('photoprev')
+    photoimg.src = img
+    photod.appendChild(photoimg)
+
+    document.getElementsByClassName('photos')[0].appendChild(photod)
+
+}
+
+function loadposts() {
+    console.log(channel);
+    if (channel.status == true){
+
+        cinfodiv = document.createElement('div')
+        cinfodiv.classList.add('channeltop')
+        cpic = document.createElement('img')
+        cpic.classList.add('channelpic')
+        cpic.src = channel.picture
+        cinfodiv.appendChild(cpic)
+    
+        cbase = document.createElement('div')
+        cbase.classList.add('channelbaseinfo')
+    
+        cname = document.createElement('h2')
+        cname.classList.add('channelname')
+        cname.innerHTML = channel.name
+        cbase.appendChild(cname)
+    
+        csubs = document.createElement('p')
+        csubs.classList.add('channelsubs')
+        csubs.innerHTML = channel.subscribers+' subscribers'
+        cbase.appendChild(csubs)
+    
+        cdesk = document.createElement('p')
+        cdesk.classList.add('channeldesk')
+        cdesk.innerHTML = channel.description
+        cbase.appendChild(cdesk)
+        cinfodiv.appendChild(cbase)
+        document.getElementsByTagName('body')[0].appendChild(cinfodiv)
+    
+        maind = document.createElement('div')
+        maind.classList.add('main')
+    
+        photosd = document.createElement('div')
+        photosd.classList.add('photos')
+        maind.appendChild(photosd)
+        
+        loadmorep = document.createElement('div')
+        loadmorep.classList.add('loadmore')
+        loadmorep.onclick = function (){loadmore(channel.latests[channel.latests.length-1].id)}
+        loadmorep.innerHTML = 'Load more'
+        maind.appendChild(loadmorep)
+        document.getElementsByTagName('body')[0].appendChild(maind)
+        posts = channel.latests
+        posts = posts.reverse()
+        for (let i = 0; i < posts.length; i++) {
+            const postdata = posts[i];
+            addpost(postdata)
+        }
+    } else {
+        h1 = document.createElement('h1')
+        h1.innerHTML = 'Error while loading channel @'+c
+        document.body.appendChild(h1)
+    }
+
+    
+
+}
+function loadmore(id) {
+    btn = document.getElementsByClassName('loadmore')[0]
+    btn.onclick = ''
+    btn.innerHTML = 'Loading...'
+    fetch(pytgcf_api+c+'/chunk/'+id)
+    .then(response => { return response.json() })
+    .then(data => {
+        data = data.reverse()
+
+        for (let i = 0; i < data.length; i++) {
+            const post = data[i];
+            if (post.id > id || post.id == id){
+            } else {
+                console.log(post.id);
+                channel.latests.push(post)
+                addpost(post)
+            }
+
+            
+        }
+        btn.innerHTML = 'Load more'
+        if (channel.latests[channel.latests.length-1].id != 1){
+            btn.onclick = function (){loadmore(channel.latests[channel.latests.length-1].id)}
+        } else {
+            btn.remove()
+        }
+
+    })
+}
+
+</script>
+</body>
+</html>
